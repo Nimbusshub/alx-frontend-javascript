@@ -8,5 +8,5 @@ export default function updateUniqueItems(aMap) {
       }
     } else aMap.set(key, value);
   }
-  return 0;
+  return aMap;
 }
