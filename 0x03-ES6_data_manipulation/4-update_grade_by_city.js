@@ -10,7 +10,7 @@ export default function updateStudentGradeByCity(arr, city, newGrades) {
     }));
 }
 
-// More explanatory code
+// First trial
 // export default function updateStudentGradeByCity(arr, city, newGrades) {
 //   if (!Array.isArray(arr)) return [];
 //   const newArr = arr.filter((val) => val.location === city);
