@@ -1,5 +1,4 @@
 export default function getStudentsByLocation(arr, city) {
-  return arr.filter((val) => {
-    if (val.location === city) return val;
-  });
+  if (!Array.isArray(arr)) return [];
+  return arr.filter((val) => val.location === city);
 }
