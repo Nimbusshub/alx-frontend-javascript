@@ -1,32 +1,44 @@
-// Teacher interface
-interface Teacher {
-  readonly firstName: string;
-  readonly lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
-  [key: string]: any;
+interface DirectorInterface {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workDirectorTasks(): string;
 }
 
-// Directors interface extends from Teacher interface
-interface Directors extends Teacher {
-  numberOfReports: number;
-}
-// interface accepts a string as arguement and returns a string
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+interface TeacherInterface {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workTeacherTasks(): string;
 }
 
-// export function printTeacher(
-//   firstName: string,
-//   lastName: string
-// ): printTeacherFunction {
-//   return (string) => `${firstName[0]}. ${lastName}`;
-// }
+class Director implements DirectorInterface {
+  workFromHome(): string {
+    return 'Working from home';
+  }
 
-export const printTeacher: printTeacherFunction = (
-  firstName: string,
-  lastName: string
-): string => `${firstName[0]}. ${lastName}`;
+  getCoffeeBreak(): string {
+    return 'Getting a coffee break';
+  }
 
-console.log(printTeacher('john', 'doe'));
+  workDirectorTasks(): string {
+    return 'Getting to director tasks';
+  }
+}
+
+class Teacher implements TeacherInterface {
+  workFromHome(): string {
+    return 'Cannot work from home';
+  }
+
+  getCoffeeBreak(): string {
+    return 'Cannot have a break';
+  }
+
+  workTeacherTasks(): string {
+    return 'Getting to work';
+  }
+}
+
+export function createEmployee(salary: number | string): Teacher | Director {
+  if (typeof salary === 'number' && salary < 500) return new Teacher();
+  else return new Director();
+}
