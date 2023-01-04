@@ -17,16 +17,27 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// export function printTeacher(
-//   firstName: string,
-//   lastName: string
-// ): printTeacherFunction {
-//   return (string) => `${firstName[0]}. ${lastName}`;
-// }
+export function printTeacher(firstName: string, lastName: string): string {
+  return `${firstName[0]}. ${lastName}`;
+}
 
-export const printTeacher: printTeacherFunction = (
-  firstName: string,
-  lastName: string
-): string => `${firstName[0]}. ${lastName}`;
+// Test printTeacher
+// console.log(printTeacher('Busayo', 'Nimah'));
 
-console.log(printTeacher('john', 'doe'));
+class StudentClass {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
